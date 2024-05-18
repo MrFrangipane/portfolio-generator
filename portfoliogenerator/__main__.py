@@ -1,3 +1,5 @@
+import json
+
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
@@ -108,20 +110,51 @@ def make_index_article_images_text_4cols(article):
     return '\n'.join(html_lines)
 
 
+def make_index_article_columns3(article):
+    def _section(section):
+        return [
+            '<div class="col-4 col-12-narrower">',
+            '<section>',
+            f'<span class="icon solid featured fa-{section['icon']}"></span>',
+            '<header>',
+            f'<h3>{section['title']}</h3>',
+            '</header>',
+            f'<p>{section['text']}</p>',
+            '</section>',
+            '</div>',
+        ]
+
+    html_lines = [
+        '<section class="wrapper style1 container special">',
+        '<div class="row">'
+    ]
+    html_lines += _section(article['left'])
+    html_lines += _section(article['middle'])
+    html_lines += _section(article['right'])
+    html_lines += [
+        '</div>',
+        '</section>'
+    ]
+    return '\n'.join(html_lines)
+
 def make_index_articles(articles):
     articles_html = list()
     for article in articles:
         if article['type'] == 'featured-icons':
             articles_html.append(make_index_article_featured_icons(article))
+
         elif article['type'] == 'images-text-4cols':
             articles_html.append(make_index_article_images_text_4cols(article))
+
+        elif article['type'] == 'columns3':
+            articles_html.append(make_index_article_columns3(article))
 
     return articles_html
 
 
 def make_index_data(index):
     if isinstance(index['welcome_phrase'], list):
-        welcome_phrase = '<br/>'.join(index['welcome_phrase'])
+        welcome_phrase = '&nbsp;<br/>'.join(index['welcome_phrase'])
     else:
         welcome_phrase = index['welcome_phrase']
 
