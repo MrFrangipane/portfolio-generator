@@ -1979,6 +1979,15 @@ input, select, textarea {
 					background: #df93b8;
 				}
 
+			.icon.circle.fa-instagram {
+				background: #da83ae;
+				color: #fff;
+			}
+
+				.icon.circle.instagram:hover {
+					background: #df93b8;
+				}
+
 		.icon.featured {
 			cursor: default;
 			display: block;

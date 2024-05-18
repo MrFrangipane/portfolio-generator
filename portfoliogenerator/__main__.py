@@ -71,7 +71,6 @@ def make_index_article_images_text_4cols(article):
         f"<h2>{article['title']}</h2>",
         '</header>',
     ]
-
     for section in article['sections']:
         if col == 0:
             html_lines.append('<div class="row">')
@@ -163,7 +162,8 @@ def make_index_data(index):
         'main_button': index['main_button'],
         'welcome_phrase': welcome_phrase,
         'header': index['header'],
-        'articles': make_index_articles(index['articles'])
+        'articles': make_index_articles(index['articles']),
+        'footer': index['footer']
     }
 
 
