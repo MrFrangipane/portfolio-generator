@@ -184,4 +184,4 @@ def main(in_filepath: str, out_filepath: str):
         file.write(template.render(to_inject).encode('utf-8'))
 
 
-main('../../input/tests.yml', '../../output/index.html')
+main('resources/tests.yml', '../../output/index.html')
