@@ -132,6 +132,32 @@ def make_section_columns3(section):
     return '\n'.join(html_lines)
 
 
+def make_section_article(section):
+    html_lines = [
+        '<section class="wrapper style4 container">',
+        '<div class="content">',
+        '<section>'
+    ]
+    if section.get('image', None) is not None:
+        html_lines.append(f'<a href="#" class="image featured"><img src="images/{section['image']}" alt="" /></a>')
+
+    html_lines += [
+        '<header>',
+        f'<h3>{section['title']}</h3>',
+        '</header>'
+    ]
+    for paragraph in section['paragraphs']:
+        html_lines.append(f'<p>{paragraph}</p>')
+
+    html_lines += [
+        '</section>',
+        '</div>',
+        '</section>'
+    ]
+
+    return '\n'.join(html_lines)
+
+
 def make_sections(sections):
     sections_html = list()
     for section in sections:
@@ -143,5 +169,8 @@ def make_sections(sections):
 
         elif section['type'] == 'columns3':
             sections_html.append(make_section_columns3(section))
+
+        elif section['type'] == 'article':
+            sections_html.append(make_section_article(section))
 
     return sections_html
