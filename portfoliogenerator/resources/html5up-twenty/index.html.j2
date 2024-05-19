@@ -56,8 +56,8 @@
 						<p>{{ index.header.text }}</p>
 					</header>
 
-                    {% for article in index.articles %}
-                        {{ article }}
+                    {% for section in index.sections %}
+                        {{ section }}
                     {% endfor %}
 
 				</article>
@@ -83,13 +83,13 @@
 				<footer id="footer">
 
 					<ul class="icons">
-                        {% for link in index.footer.links %}
+                        {% for link in footer.links %}
                             <li><a href="{{ link.link }}" class="icon brands circle fa-{{ link.type }}"><span class="label">{{ link.type }}</span></a></li>
                         {% endfor %}
 					</ul>
 
 					<ul class="copyright">
-						<li>&copy; {{ index.footer.copyright }}</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; {{ footer.copyright }}</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 
 				</footer>
