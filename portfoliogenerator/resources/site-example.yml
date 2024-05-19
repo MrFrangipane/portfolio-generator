@@ -36,7 +36,13 @@ index:
     icon: "lightbulb"
     text: "I want to do this professionally now"
 
-  articles:
+  footer:
+    title: "Thanks for reading"
+    text: "Don't hesitate to contact me"
+    button:
+    link:
+
+  sections:
     - type: "featured-icons"
       title: "I've been working with the musical band NOON since january 2023"
       text: "They wanted to add custom lighting fixtures to their show. I built 8 LED bars that are DMX programmable and as lightweight as possible."
@@ -46,26 +52,6 @@ index:
         - laptop
         - inbox
       button:
-
-    - type: "images-text-4cols"
-      title: "Ty work"
-      button: "Ah ouais"
-      link: "test"
-      sections:
-        - title: "A really fast train"
-          image: "images/pic01.jpg"
-          link: "test.html"
-          text: "Coucou le train voilà voilà"
-
-        - title: "Airport terminal"
-          image: "images/pic02.jpg"
-          link: "test.html"
-          text: "Tourista ta ta ta"
-
-        - title: "Hyperspace travel"
-          image: "images/pic03.jpg"
-          link: "test.html"
-          text: "Vroum vroum la fusée qui s'anvol"
 
     - type: "images-text-4cols"
       title: "My work"
@@ -92,24 +78,70 @@ index:
         icon: clock
         title: "Hello you"
         text: "This is a paragraph of something I wanted to say about something"
+        button:
+        link:
       middle:
         icon: volume-up
         title: "Malcolm"
         text: "This is a paragraph of something I wanted to say about something"
+        button: Click
+        link:
       right:
         icon: laptop
         title: "Don't hesitate"
         text: "This is a paragraph of something I wanted to say about something"
+        button:
+        link:
 
-  footer:
-    title: "Thanks for reading"
-    text: "Don't hesitate to contact me"
-    button:
-    link:
-    copyright: "Frangitron - 2024"
-    links:
-      - type: "instagram"
-        link: "test"
+footer:
+  copyright: "Frangitron - 2024"
+  links:
+    - type: "instagram"
+      link: "test"
 
-      - type: "github"
-        link: "test"
+    - type: "github"
+      link: "test"
+
+pages:
+  - title: "Page 1"
+    filename: "page1"
+    icon: clock
+    header: "This is the header"
+    subheader:
+      - "And here is the subheader"
+      - "maybe we want it multiline ? what do we think ?"
+      - "tell me in the comments and dont forget to subscribe to my channel"
+    sections:
+      - type: "article"
+        title: "This is the title of the block"
+        image: "pic04.jpg"
+        paragraphs:
+          - "Some text here and ect text bla bli blou je suis un robot"
+          - "Some other text parapggrah paragraph you dont know how to spell rapgrpght ?"
+
+      - type: "columns3"
+        left:
+          icon: clock
+          title: "Hello you"
+          text: "This is a paragraph of something I wanted to say about something"
+          button:
+          link:
+        middle:
+          icon: volume-up
+          title: "Malcolm"
+          text: "This is a paragraph of something I wanted to say about something"
+          button:
+          link:
+        right:
+          icon: laptop
+          title: "Don't hesitate"
+          text: "This is a paragraph of something I wanted to say about something"
+          button:
+          link:
+
+      - type: "article"
+        title: "This is the title of the block"
+        image: "pic04.jpg"
+        paragraphs:
+          - "Some text here and ect text bla bli blou je suis un robot"
+          - "Some other text parapggrah paragraph you dont know how to spell rapgrpght ?"
