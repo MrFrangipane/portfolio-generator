@@ -57,6 +57,6 @@ def main(source_directory: str, target_directory: str):
 
 
 main(
-    source_directory='../../input',
-    target_directory='../../output'
+    source_directory='E:/PROJECTS_2024/portfolio-generator/portfolios/frangitron/source',
+    target_directory='E:/PROJECTS_2024/portfolio-generator/portfolios/frangitron/output'
 )

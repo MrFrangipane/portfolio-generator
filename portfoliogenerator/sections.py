@@ -147,7 +147,60 @@ def make_section_article(section):
         '</header>'
     ]
     for paragraph in section['paragraphs']:
-        html_lines.append(f'<p>{paragraph}</p>')
+        if isinstance(paragraph, str):
+            html_lines.append(f'<p>{paragraph}</p>')
+
+        elif isinstance(paragraph, dict):
+            if paragraph.get('image-right', None) is not None:
+                html_lines += [
+                    '<div class="row">'
+                        '<div class="col-4 col-12-narrower">',
+                            f'<p>{paragraph['text']}</p>',
+                        '</div>',
+                        '<div class="col-8 col-12-narrower imp-narrower">',
+                            f'<a href="images/{paragraph['image-right']}" class="image featured">'
+                                f'<img src="images/{paragraph['image-right']}" alt="">',
+                            '</a>'
+                        '</div>',
+                    '</div>'
+                ]
+            elif paragraph.get('image-left', None) is not None:
+                html_lines += [
+                    '<div class="row">'
+                        '<div class="col-8 col-12-narrower imp-narrower">',
+                            f'<a href="images/{paragraph['image-left']}" class="image featured">'
+                                f'<img src="images/{paragraph['image-left']}" alt="">',
+                            '</a>'
+                        '</div>',
+                        '<div class="col-4 col-12-narrower">',
+                            f'<p>{paragraph['text']}</p>',
+                        '</div>',
+                    '</div>'
+                ]
+            elif paragraph.get('youtube-left', None) is not None:
+                html_lines += [
+                    '<div class="row">'
+                        '<div class="col-8 col-12-narrower imp-narrower">',
+                            f'<iframe width="100%" height="{paragraph['youtube-height']}" src="https://www.youtube.com/embed/{paragraph['youtube-left']}?autoplay=0&mute=1&loop=1">',
+                            '</iframe>'
+                        '</div>',
+                        '<div class="col-4 col-12-narrower">',
+                            f'<p>{paragraph['text']}</p>',
+                        '</div>',
+                    '</div>'
+                ]
+            elif paragraph.get('youtube-right', None) is not None:
+                html_lines += [
+                    '<div class="row">'
+                        '<div class="col-4 col-12-narrower">',
+                            f'<p>{paragraph['text']}</p>',
+                        '</div>',
+                        '<div class="col-8 col-12-narrower imp-narrower">',
+                            f'<iframe width="100%" height="{paragraph['youtube-height']}" src="https://www.youtube.com/embed/{paragraph['youtube-right']}?autoplay=0&mute=1&loop=1">',
+                            '</iframe>'
+                        '</div>',
+                    '</div>'
+                ]
 
     html_lines += [
         '</section>',

@@ -118,6 +118,10 @@ pages:
         paragraphs:
           - "Some text here and ect text bla bli blou je suis un robot"
           - "Some other text parapggrah paragraph you dont know how to spell rapgrpght ?"
+          - text: "Some other text parapggrah paragraph you dont know how to spell rapgrpght ?"
+            image-left: "pic04.jpg"
+          - text: "Some other text parapggrah paragraph you dont know how to spell rapgrpght ?"
+            image-right: "pic03.jpg"
 
       - type: "columns3"
         left:
