@@ -118,10 +118,16 @@ pages:
         paragraphs:
           - "Some text here and ect text bla bli blou je suis un robot"
           - "Some other text parapggrah paragraph you dont know how to spell rapgrpght ?"
-          - text: "Some other text parapggrah paragraph you dont know how to spell rapgrpght ?"
+          - text: "C'est l'image 4 que voyez ici. elle a été imagée dans une imagerie à Imoges, ville connue pour sa procelaine et ses images"
             image-left: "pic04.jpg"
-          - text: "Some other text parapggrah paragraph you dont know how to spell rapgrpght ?"
+          - text: "Ici cest limage 3, cest un mage de niveau 3 qui a été farmé en suisse par des japonais tendres et samoureux"
             image-right: "pic03.jpg"
+          - text: "Ey voici une video youtube quil est bien de regarder si vous voulze la voir"
+            youtube-left: "izfvuM-BQHY"
+            youtube-height: 300
+          - text: "Ey voici une video youtube quil est bien de regarder si vous voulze la voir"
+            youtube-right: "izfvuM-BQHY"
+            youtube-height: 300
 
       - type: "columns3"
         left:
