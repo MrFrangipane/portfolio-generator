@@ -16,7 +16,6 @@ def copy(source, destination):
             continue
 
         fullpath = os.path.join(source, item)
-        print(fullpath, os.path.join(source, destination))
         if os.path.isdir(fullpath):
             shutil.copytree(fullpath, os.path.join(destination, item), dirs_exist_ok=True)
         else:
