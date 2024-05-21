@@ -7,7 +7,41 @@ from jinja2 import Environment, FileSystemLoader
 
 from portfoliogenerator.index import make_index_data
 from portfoliogenerator.menus import make_menus
-from portfoliogenerator.page import make_page
+from portfoliogenerator.page import (make_page)
+
+
+def copy(source, destination):
+    for item in os.listdir(source):
+        if item.startswith('.'):
+            continue
+
+        fullpath = os.path.join(source, item)
+        print(fullpath, os.path.join(source, destination))
+        if os.path.isdir(fullpath):
+            shutil.copytree(fullpath, os.path.join(destination, item), dirs_exist_ok=True)
+        else:
+            shutil.copy(fullpath, os.path.join(destination, item))
+
+
+def prepare(target_directory):
+    if os.path.exists(target_directory):
+        if not os.path.isdir(target_directory):
+            raise NotADirectoryError(f"Output must be a directory '{target_directory}'")
+        else:
+            print("Deleting everything in output directory")
+            for item in os.listdir(target_directory):
+                if item.startswith('.'):
+                    continue
+
+                fullpath = os.path.join(target_directory, item)
+                if os.path.isdir(fullpath):
+                    shutil.rmtree(fullpath)
+                else:
+                    os.remove(fullpath)
+
+    else:
+        print("Creating output directory")
+        os.mkdir(target_directory)
 
 
 def main(source_directory: str, target_directory: str):
@@ -18,19 +52,9 @@ def main(source_directory: str, target_directory: str):
     if not os.path.isfile(site_yaml_filepath):
         raise FileNotFoundError(f"Site description file is missing '{site_yaml_filepath}")
 
-    if os.path.exists(target_directory):
-        if not os.path.isdir(target_directory):
-            raise NotADirectoryError(f"Output must be a directory '{target_directory}'")
-        else:
-            print("Deleting everything in output directory")
-            shutil.rmtree(target_directory)
-    else:
-        print("Creating output directory")
-        os.mkdir(target_directory)
-
+    prepare(target_directory)
     shutil.copytree(os.path.join(template_directory, "assets"), os.path.join(target_directory, 'assets'))
-
-    shutil.copytree(source_directory, target_directory, dirs_exist_ok=True)
+    copy(source_directory, target_directory)
 
     with open(site_yaml_filepath, 'r') as file:
         yaml_site = yaml.safe_load(file)
