@@ -11,6 +11,6 @@ def make_paragraph(content):
 
         text = content.get('text', None)
         if text is not None:
-            return text
+            return make_paragraph(text)
 
     return content
