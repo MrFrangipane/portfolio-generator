@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>{{ title }}</title>
+		<title>{{ site.title }}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -17,11 +17,11 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<h1 id="logo"><a href="index.html">{{ title }}</a></h1>
+					<h1 id="logo"><a href="{{ site.homepage.link }}">{{ site.title }}</a></h1>
 					<nav id="nav">
 						<ul>
-							<li class="current"><a href="index.html">{{ index.title }}</a></li>
-                            {{ menus }}
+							<li class="current"><a href="{{ site.homepage.link }}">{{ site.homepage.title }}</a></li>
+                            {{ site.menus }}
 						</ul>
 					</nav>
 				</header>
@@ -36,12 +36,12 @@
 					-->
 					<div class="inner">
 						<header>
-							<h2>{{ index.title }}</h2>
+							<h2>{{ page.title }}</h2>
 						</header>
-						<p>{{ index.welcome_phrase }}</p>
+						<p>{{ page.welcome_phrase }}</p>
 						<footer>
 							<ul class="buttons stacked">
-								<li><a href="#main" class="button fit scrolly">{{ index.main_button }}</a></li>
+								<li><a href="#main" class="button fit scrolly">{{ page.main_button }}</a></li>
 							</ul>
 						</footer>
 					</div>
@@ -51,12 +51,12 @@
 				<article id="main">
 
 					<header class="special container">
-						<span class="icon solid fa-{{ index.header.icon }}"></span>
-						<h2>{{ index.header.title }}</h2>
-						<p>{{ index.header.text }}</p>
+						<span class="icon solid fa-{{ page.header.icon }}"></span>
+						<h2>{{ page.header.title }}</h2>
+						<p>{{ page.header.text }}</p>
 					</header>
 
-                    {% for section in index.sections %}
+                    {% for section in page.sections %}
                         {{ section }}
                     {% endfor %}
 
@@ -66,13 +66,13 @@
 				<section id="cta">
 
 					<header>
-						<h2>{{ index.footer.title }}</h2>
-						<p>{{ index.footer.text }}</p>
+						<h2>{{ page.footer.title }}</h2>
+						<p>{{ page.footer.text }}</p>
 					</header>
-                    {% if index.footer.button is not none %}
+                    {% if page.footer.button is not none %}
 					<footer>
 						<ul class="buttons">
-							<li><a href="{{ index.footer.link }}" class="button primary">{{ index.footer.button }}</a></li>
+							<li><a href="{{ page.footer.link }}" class="button primary">{{ page.footer.button }}</a></li>
 						</ul>
 					</footer>
                     {% endif %}
@@ -83,13 +83,13 @@
 				<footer id="footer">
 
 					<ul class="icons">
-                        {% for link in footer.links %}
+                        {% for link in site.footer.links %}
                             <li><a href="{{ link.link }}" class="icon brands circle fa-{{ link.type }}"><span class="label">{{ link.type }}</span></a></li>
                         {% endfor %}
 					</ul>
 
 					<ul class="copyright">
-						<li>&copy; {{ footer.copyright }}</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; {{ site.footer.copyright }}</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 
 				</footer>

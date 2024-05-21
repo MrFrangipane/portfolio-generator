@@ -1,0 +1,41 @@
+---
+title: "LED Board"
+template: "no-sidebar"
+
+icon: tools
+header: "ArtNet/LED Strip PCB + Software"
+subheader:
+  - "Receive up to 3 Artnet universes to drive up to 8 LED Strip simultaneously"
+  - "2D Map each LED with the associated desktop software"
+  - "(january to march 2024)"
+
+sections:
+  - type: "article"
+    title: "Custom PCB"
+    paragraphs:
+      - lines:
+        - "PCB designed around Raspberry Pi Pico, in order to extend it with:"
+        - "- an ethernet interface"
+        - "- 8 RS-485 on-board transmitters to transport LED Strip data over long distances"
+        - "- 8 RS-485 mini-board receivers to transport LED Strip data over long distances"
+        - "- 5V or 12V power supply"
+      - image-left: "ledboard/rp2040-led-board-pcb-v01.jpeg"
+        text: "3D render of KiCAD project"
+      - image-right: "ledboard/ledboard-photo1.jpeg"
+        lines:
+          - "PCB while being programmed"
+          - ""
+      - image-left: "ledboard/board-wood.jpeg"
+        lines:
+          - "PCB in the prototype support for Blitz's LED Totems"
+
+  - type: "article"
+    title: "Scanning Software"
+    paragraphs:
+      - lines:
+        - "Scanning software allows to capture each LED position through webcam then map them in 1D space"
+        - "This helps reduce number of DMX channels used, and facilitate mapping in software like Resolume Arena"
+      - image-left: "ledboard/main-window.jpeg"
+        text: "Screen capture of scanning software (Python3/PySide6)"
+      - instagram-right: "C2hejAnKnFx"
+        text: "Instagram reel showing software scanning Blitz's LED Totem"

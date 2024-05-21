@@ -1,3 +1,4 @@
+import glob
 import os.path
 import shutil
 
@@ -32,31 +33,40 @@ def main(source_directory: str, target_directory: str):
     shutil.copytree(source_directory, target_directory, dirs_exist_ok=True)
 
     with open(site_yaml_filepath, 'r') as file:
-        yaml_data = yaml.safe_load(file)
+        yaml_site = yaml.safe_load(file)
 
-    to_render = {
-        'title': yaml_data['title'],
-        'index': make_index_data(yaml_data['index']),
-        'menus': '\n'.join(make_menus(yaml_data['menu'])),
-        'footer': yaml_data['footer']
+    site = {
+        'title': yaml_site['title'],
+        'menus': '\n'.join(make_menus(yaml_site['menu'])),
+        'footer': yaml_site['footer'],
+        'homepage': yaml_site['homepage']
     }
 
     env = Environment(loader=FileSystemLoader('./resources/html5up-twenty'))
-    template = env.get_template('index.html.j2')
+    for yaml_source in glob.glob(os.path.join(source_directory, '*.yml')):
+        page_data = {
+            'site': site
+        }
 
-    index_filepath = os.path.join(target_directory, 'index.html')
-    with open(index_filepath, 'wb+') as file:
-        file.write(template.render(to_render).encode('utf-8'))
+        if yaml_source == site_yaml_filepath:
+            continue
 
-    for page in yaml_data['pages']:
-        page_filepath = os.path.join(target_directory, page['filename']) + '.html'
-        template = env.get_template('no-sidebar.html.j2')
-        to_render['page'] = make_page(page)
+        with open(yaml_source, 'r') as file:
+            yaml_page = yaml.safe_load(file)
+
+        if yaml_page['template'] == 'index':
+            page_data['page'] = make_index_data(yaml_page)
+
+        elif yaml_page['template'] == 'no-sidebar':
+            page_data['page'] = make_page(yaml_page)
+
+        template = env.get_template(yaml_page['template'] + '.html.j2')
+        page_filepath = os.path.join(target_directory, os.path.splitext(os.path.basename(yaml_source))[0] + '.html')
+
         with open(page_filepath, 'wb+') as file:
-            file.write(template.render(to_render).encode('utf-8'))
-
+            file.write(template.render(page_data).encode('utf-8'))
 
 main(
-    source_directory='E:/PROJECTS_2024/portfolio-generator/portfolios/frangitron/source',
-    target_directory='E:/PROJECTS_2024/portfolio-generator/portfolios/frangitron/output'
+    source_directory='E:/PROJECTS_2024/portfolios/frangitron/source',
+    target_directory='E:/PROJECTS_2024/portfolios/frangitron/output'
 )

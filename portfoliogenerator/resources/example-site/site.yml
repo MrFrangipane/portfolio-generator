@@ -1,0 +1,21 @@
+---
+title: "Frangitron"
+menu:
+  - title: "Projects"
+    type: "menu"
+    value:
+      - title: "LED Board"
+        type: "link"
+        value: "ledboard.html"
+
+homepage:
+  title: "Welcome"
+  link: "index.html"
+
+footer:
+  copyright: "Frangitron - 2024"
+  links:
+    - type: "instagram"
+      link: "test"
+    - type: "github"
+      link: "test"

@@ -1,0 +1,71 @@
+---
+title: "Welcome"
+template: "index"
+
+welcome_phrase:
+  - "You'll find here my ongoing"
+  - "and previous audio/lighting"
+  - "projects"
+main_button: "Tell me more"
+
+header:
+  title: "I've always been interested in creating audio and/or visual installations"
+  icon: "lightbulb"
+  text: "I want to do this professionally now"
+
+footer:
+  title: "Thanks for reading"
+  text: "Don't hesitate to contact me"
+  button:
+  link:
+
+sections:
+  - type: "featured-icons"
+    title: "I've been working with the musical band NOON since january 2023"
+    text: "They wanted to add custom lighting fixtures to their show. I built 8 LED bars that are DMX programmable and as lightweight as possible."
+    icons:
+      - clock
+      - volume-up
+      - laptop
+      - inbox
+    button:
+
+  - type: "images-text-4cols"
+    title: "My work"
+    button: "Ah ouais"
+    link: "test"
+    sections:
+      - title: "A really fast train"
+        image: "images/pic01.jpg"
+        link: "test.html"
+        text: "Coucou le train voilà voilà"
+
+      - title: "Airport terminal"
+        image: "images/pic02.jpg"
+        link: "test.html"
+        text: "Tourista ta ta ta"
+
+      - title: "Hyperspace travel"
+        image: "images/pic03.jpg"
+        link: "test.html"
+        text: "Vroum vroum la fusée qui s'anvol"
+
+  - type: "columns3"
+    left:
+      icon: clock
+      title: "Hello you"
+      text: "This is a paragraph of something I wanted to say about something"
+      button:
+      link:
+    middle:
+      icon: volume-up
+      title: "Malcolm"
+      text: "This is a paragraph of something I wanted to say about something"
+      button: Click
+      link:
+    right:
+      icon: laptop
+      title: "Don't hesitate"
+      text: "This is a paragraph of something I wanted to say about something"
+      button:
+      link:

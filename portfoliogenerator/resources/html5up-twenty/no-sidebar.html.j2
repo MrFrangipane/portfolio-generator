@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>{{ title }} - {{ page.title }}</title>
+		<title>{{ site.title }} - {{ page.title }}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -16,11 +16,11 @@
 		<div id="page-wrapper">
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">{{ title }}</a></h1>
+					<h1 id="logo"><a href="{{ site.homepage.link }}">{{ site.title }}</a></h1>
 					<nav id="nav">
 						<ul>
-							<li class="current"><a href="index.html">{{ index.title }}</a></li>
-                            {{ menus }}
+							<li class="current"><a href="{{ site.homepage.link }}">{{ site.homepage.title }}</a></li>
+                            {{ site.menus }}
 						</ul>
 					</nav>
 				</header>
@@ -46,13 +46,13 @@
 				<footer id="footer">
 
 					<ul class="icons">
-                        {% for link in footer.links %}
+                        {% for link in site.footer.links %}
                             <li><a href="{{ link.link }}" class="icon brands circle fa-{{ link.type }}"><span class="label">{{ link.type }}</span></a></li>
                         {% endfor %}
 					</ul>
 
 					<ul class="copyright">
-						<li>&copy; {{ footer.copyright }}</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; {{ site.footer.copyright }}</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 
 				</footer>
