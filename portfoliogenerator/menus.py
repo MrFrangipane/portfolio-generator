@@ -7,7 +7,7 @@ def make_menus(menu: list[dict], html_lines: list[str] = None):
     for item in menu:
         if item['type'] == 'menu':
             html_lines.append(f'<li class="submenu">')
-            html_lines.append(f'<a href="#">{item['title']}</a>')
+            html_lines.append(f'<a href="#">{item["title"]}</a>')
             html_lines.append(f'<ul>')
 
             make_menus(item['value'], html_lines)
@@ -16,6 +16,6 @@ def make_menus(menu: list[dict], html_lines: list[str] = None):
             html_lines.append(f'</li>')
 
         elif item['type'] == 'link':
-            html_lines.append(f'<li><a href="{item['value']}">{item['title']}</a></li>')
+            html_lines.append(f'<li><a href="{item["value"]}">{item["title"]}</a></li>')
 
     return html_lines

@@ -1,6 +1,7 @@
 import glob
 import os.path
 import shutil
+import sys
 
 import yaml
 from jinja2 import Environment, FileSystemLoader
@@ -89,7 +90,5 @@ def main(source_directory: str, target_directory: str):
         with open(page_filepath, 'wb+') as file:
             file.write(template.render(page_data).encode('utf-8'))
 
-main(
-    source_directory='E:/PROJECTS_2024/portfolios/frangitron/source',
-    target_directory='E:/PROJECTS_2024/portfolios/frangitron/output'
-)
+
+main(source_directory=sys.argv[1], target_directory=sys.argv[2])

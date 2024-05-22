@@ -9,14 +9,14 @@ def make_section_featured_icons(article):
         '<header>',
         f"<h2>{article['title']}</h2>",
         '</header>',
-        f'<p>{article['text']}</p>'
+        f"<p>{article['text']}</p>"
     ]
 
     if article.get('button', None) is not None:
         html_lines += [
             '<footer>',
             '<ul class="buttons">',
-            f'<li><a href="#" class="button">{article['button']}</a></li>',
+            f'<li><a href="#" class="button">{article["button"]}</a></li>',
             '</ul>',
             '</footer>'
         ]
@@ -57,11 +57,11 @@ def make_section_images_text_4cols(article):
         html_lines += [
             '<div class="col-6 col-12-narrower">',
             '<section>',
-            f'<a href="{section['link']}" class="image featured"><img src="images/{section['image']}" alt="" /></a>',
+            f'<a href="{section["link"]}" class="image featured"><img src="images/{section["image"]}" alt="" /></a>',
             '<header>',
-            f'<h3>{section['title']}</h3>',
+            f'<h3>{section["title"]}</h3>',
             '</header>',
-            f'<p>{section.get('text', "&nbsp;" if col == 1 else "")}</p>',
+            f'<p>{section.get("text", "&nbsp;" if col == 1 else "")}</p>',
             '</section>',
             '</div>'
         ]
@@ -78,7 +78,7 @@ def make_section_images_text_4cols(article):
         html_lines += [
             '<footer class="major">',
             '<ul class="buttons">',
-            f'<li><a href="{article['link']}" class="button">{article['button']}</a></li>',
+            f'<li><a href="{article["link"]}" class="button">{article["button"]}</a></li>',
             '</ul>',
             '</footer>',
         ]
@@ -96,20 +96,20 @@ def make_section_columns3(section):
         ]
 
         if sub_section.get('icon', None) is not None:
-            _html_lines.append(f'<span class="icon solid featured fa-{sub_section['icon']}"></span>')
+            _html_lines.append(f'<span class="icon solid featured fa-{sub_section["icon"]}"></span>')
 
         _html_lines += [
             '<header>',
-            f'<h3>{sub_section['title']}</h3>',
+            f'<h3>{sub_section["title"]}</h3>',
             '</header>',
-            f'<p>{sub_section['text']}</p>'
+            f'<p>{sub_section["text"]}</p>'
         ]
 
         if sub_section.get('button', None) is not None:
             _html_lines += [
                 '<footer>',
                 '<ul class="buttons">',
-                f'<li><a href="{sub_section['link']}" class="button small">{sub_section['button']}</a></li>',
+                f'<li><a href="{sub_section["link"]}" class="button small">{sub_section["button"]}</a></li>',
                 '</ul>',
                 '</footer>'
             ]
@@ -143,11 +143,11 @@ def make_section_article(section):
         '<section>'
     ]
     if section.get('image', None) is not None:
-        html_lines.append(f'<a href="images/{section['image']}" class="image featured"><img src="images/{section['image']}" alt="" /></a>')
+        html_lines.append(f'<a href="images/{section["image"]}" class="image featured"><img src="images/{section["image"]}" alt="" /></a>')
 
     html_lines += [
         '<header>',
-        f'<h3>{section['title']}</h3>',
+        f'<h3>{section["title"]}</h3>',
         '</header>'
     ]
     for paragraph in section['paragraphs']:
@@ -162,8 +162,8 @@ def make_section_article(section):
                             f'<p>{make_paragraph(paragraph)}</p>',
                         '</div>',
                         '<div class="col-8 col-12-narrower imp-narrower">',
-                            f'<a href="images/{paragraph['image-right']}" class="image featured">'
-                                f'<img src="images/{paragraph['image-right']}" alt="">',
+                            f'<a href="images/{paragraph["image-right"]}" class="image featured">'
+                                f'<img src="images/{paragraph["image-right"]}" alt="">',
                             '</a>'
                         '</div>',
                     '</div>'
@@ -173,8 +173,8 @@ def make_section_article(section):
                 html_lines += [
                     '<div class="row">'
                         '<div class="col-8 col-12-narrower imp-narrower">',
-                            f'<a href="images/{paragraph['image-left']}" class="image featured">'
-                                f'<img src="images/{paragraph['image-left']}" alt="">',
+                            f'<a href="images/{paragraph["image-left"]}" class="image featured">'
+                                f'<img src="images/{paragraph["image-left"]}" alt="">',
                             '</a>'
                         '</div>',
                         '<div class="col-4 col-12-narrower">',
@@ -187,7 +187,7 @@ def make_section_article(section):
                 html_lines += [
                     '<div class="row">'
                         '<div class="col-8 col-12-narrower imp-narrower">',
-                            f'<iframe width="100%" height="{paragraph['youtube-height']}" src="https://www.youtube.com/embed/{paragraph['youtube-left']}?autoplay=0&mute=1&loop=1">',
+                            f'<iframe width="100%" height="{paragraph["youtube-height"]}" src="https://www.youtube.com/embed/{paragraph["youtube-left"]}?autoplay=0&mute=1&loop=1">',
                             '</iframe>'
                         '</div>',
                         '<div class="col-4 col-12-narrower">',
@@ -203,7 +203,7 @@ def make_section_article(section):
                             f'<p>{make_paragraph(paragraph)}</p>',
                         '</div>',
                         '<div class="col-8 col-12-narrower imp-narrower">',
-                            f'<iframe width="100%" height="{paragraph['youtube-height']}" src="https://www.youtube.com/embed/{paragraph['youtube-right']}?autoplay=0&mute=1&loop=1">',
+                            f'<iframe width="100%" height="{paragraph["youtube-height"]}" src="https://www.youtube.com/embed/{paragraph["youtube-right"]}?autoplay=0&mute=1&loop=1">',
                             '</iframe>'
                         '</div>',
                     '</div>'
