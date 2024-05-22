@@ -2778,6 +2778,10 @@ input, select, textarea {
 				margin-top: 1.5em;
 			}
 
+			#header {
+				margin-top: 0em;
+			}
+
 			header br {
 				display: none;
 			}
