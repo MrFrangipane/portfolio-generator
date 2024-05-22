@@ -50,11 +50,13 @@
 			<!-- Main -->
 				<article id="main">
 
+                    {% if page.header.show %}
 					<header class="special container">
 						<span class="icon solid fa-{{ page.header.icon }}"></span>
 						<h2>{{ page.header.title }}</h2>
 						<p>{{ page.header.text }}</p>
 					</header>
+                    {% endif %}
 
                     {% for section in page.sections %}
                         {{ section }}
