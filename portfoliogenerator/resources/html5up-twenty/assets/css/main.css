@@ -2774,6 +2774,10 @@ input, select, textarea {
 
 		/* Section/Article */
 
+			header {
+				margin-top: 1.5em;
+			}
+
 			header br {
 				display: none;
 			}
