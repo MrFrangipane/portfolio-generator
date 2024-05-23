@@ -44,9 +44,13 @@ def make_section_images_text_4cols(article):
     html_lines = [
         '<section class="wrapper style3 container special">',
         '<header class="major">',
-        f"<h2>{article['title']}</h2>",
-        '</header>',
+        f"<h2>{article['title']}</h2>"
     ]
+    if article.get('caption', False):
+        html_lines.append(f"<p>{make_paragraph(article['caption'])}</p>")
+
+    html_lines.append('</header>')
+
     for section in article['sections']:
         if col == 0:
             html_lines.append('<div class="row">')
@@ -58,7 +62,7 @@ def make_section_images_text_4cols(article):
             '<div class="col-6 col-12-narrower">',
             '<section>'
         ]
-        if section["title"]:
+        if section.get("title", False):
             html_lines += [
                 '<header>',
                 f'<h3>{section["title"]}</h3>',
