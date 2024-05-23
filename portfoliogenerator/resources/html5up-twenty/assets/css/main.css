@@ -132,7 +132,7 @@ input, select, textarea {
 		color: inherit;
 		font-weight: 300;
 		line-height: 1.75em;
-		margin-bottom: 1em;
+		margin-bottom: 0.2em;
 		text-transform: uppercase;
 	}
 
@@ -441,7 +441,7 @@ input, select, textarea {
 				}
 
 		.row {
-			margin-top: -50px;
+			margin-top: -25px;
 			margin-left: -50px;
 		}
 

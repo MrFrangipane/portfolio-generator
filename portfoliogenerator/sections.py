@@ -56,11 +56,17 @@ def make_section_images_text_4cols(article):
 
         html_lines += [
             '<div class="col-6 col-12-narrower">',
-            '<section>',
-            '<header>',
-            f'<h3>{section["title"]}</h3>',
-            '</header>',
-            f'<p>{section.get("text", "&nbsp;" if col == 1 else "")}</p>',
+            '<section>'
+        ]
+        if section["title"]:
+            html_lines += [
+                '<header>',
+                f'<h3>{section["title"]}</h3>',
+                '</header>'
+            ]
+        if section.get("text", False):
+            html_lines.append(f'<p>{section["text"]}</p>')
+        html_lines += [
             f'<a href="{section["link"]}" class="image featured"><img src="images/{section["image"]}" alt="" /></a>',
             '</section>',
             '</div>'

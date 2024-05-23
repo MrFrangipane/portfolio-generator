@@ -90,5 +90,7 @@ def main(source_directory: str, target_directory: str):
         with open(page_filepath, 'wb+') as file:
             file.write(template.render(page_data).encode('utf-8'))
 
+        print(f"Exported file://{page_filepath.replace('\\', '/')}")
+
 
 main(source_directory=sys.argv[1], target_directory=sys.argv[2])
