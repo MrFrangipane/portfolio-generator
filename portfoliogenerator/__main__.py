@@ -75,7 +75,7 @@ def main(source_directory: str, target_directory: str):
         if yaml_source == site_yaml_filepath:
             continue
 
-        with open(yaml_source, 'r') as file:
+        with open(yaml_source, 'r', encoding='utf8') as file:
             yaml_page = yaml.safe_load(file)
 
         if yaml_page['template'] == 'index':
